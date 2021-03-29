@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+/*
 func ExampleAddBonus() {
 	card := types.Card{Balance: 10_000_00, Active: true, MinBalance: 10_000_00}
 	AddBonus(&card, 3, 30, 365)
@@ -28,4 +29,40 @@ func ExampleAddBonus_limit() {
 	AddBonus(&card, 3, 30, 365)
 	fmt.Println(card.Balance)
 	// Output: 1000000000
+}
+*/
+func ExampleTotal() {
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: 1_000_00,
+			Active:  true,
+		},
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: 1_000_00,
+			Active:  true,
+		},
+		{
+			Balance: 2_000_00,
+			Active:  true,
+		},
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: 1_000_00,
+			Active:  false,
+		},
+	}))
+	fmt.Println(Total([]types.Card{
+		{
+			Balance: -1_000_00,
+			Active:  true,
+		},
+	}))
+	// Output:
+	// 100000
+	// 300000
+	// 0
+	// 0
 }
