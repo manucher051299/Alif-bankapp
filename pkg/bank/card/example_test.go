@@ -83,6 +83,6 @@ func ExamplePaymentSources() {
 		fmt.Println(x.Number)
 	}
 	// Output:
-	//5058 xxxx xxxx 8888
-	//5058 xxxx xxxx 8888
+	//0
+	//1
 }

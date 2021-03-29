@@ -2,6 +2,7 @@ package card
 
 import (
 	"bank/pkg/bank/types"
+	"strconv"
 )
 
 const withdrawLimit = 20_000_00
@@ -60,9 +61,9 @@ func Total(cards []types.Card) types.Money {
 func PaymentSources(cards []types.Card) []types.PaymentSource {
 	// TODO: ваш код
 	var a []types.PaymentSource
-	for _, card := range cards {
-		if card.Active && card.Balance > 0 {
-			a = append(a, types.PaymentSource{Type: "card", Number: "5058 xxxx xxxx 8888", Balance: card.Balance})
+	for i := 0; i < len(cards); i++ {
+		if cards[i].Active && cards[i].Balance > 0 {
+			a = append(a, types.PaymentSource{Type: "card", Number: strconv.Itoa(i), Balance: cards[i].Balance})
 		}
 	}
 	return a
