@@ -2,7 +2,7 @@ package card
 
 import (
 	"bank/pkg/bank/types"
-	"strconv"
+	"fmt"
 )
 
 const withdrawLimit = 20_000_00
@@ -63,7 +63,8 @@ func PaymentSources(cards []types.Card) []types.PaymentSource {
 	var a []types.PaymentSource
 	for i := 0; i < len(cards); i++ {
 		if cards[i].Active && cards[i].Balance > 0 {
-			a = append(a, types.PaymentSource{Type: "card", Number: strconv.Itoa(i), Balance: cards[i].Balance})
+			fmt.Println(cards[i].PAN)
+			a = append(a, types.PaymentSource{Type: "card", Number: string(cards[i].PAN), Balance: cards[i].Balance})
 		}
 	}
 	return a
