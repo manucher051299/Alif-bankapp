@@ -68,7 +68,7 @@ func ExampleTotal() {
 }
 
 func ExamplePaymentSources() {
-	PaymentSources([]types.Card{
+	x := PaymentSources([]types.Card{
 		{
 			PAN:     "5058 xxxx xxxx 8888",
 			Balance: 1_000_00,
@@ -80,7 +80,10 @@ func ExamplePaymentSources() {
 			Active:  true,
 		},
 	})
+	for _, x := range x {
+		fmt.Println(x.Number)
 
+	}
 	// Output:
 	//5058 xxxx xxxx 8888
 	//5058 xxxx xxxx 9999
